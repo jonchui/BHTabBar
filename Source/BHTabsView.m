@@ -9,7 +9,8 @@
 
 - (void)layoutSubviews {
   NSUInteger N = [self.tabViews count];
-  
+  // do NOT allow W's bigger than MIN_TAB_WIDTH
+    /*
   CGFloat W = self.frame.size.width / N;
   NSUInteger overlap = W * self.style.overlapAsPercentageOfTabWidth;
   W = (self.frame.size.width + overlap * (N-1)) / N;
@@ -19,6 +20,11 @@
         // we need to incraese the content view
         self.contentSize = CGSizeMake(W*N, self.frame.size.height);
     }
+    */
+    CGFloat W = MIN_TAB_WIDTH;
+    self.contentSize = CGSizeMake(W*N, self.frame.size.height);
+    NSUInteger overlap = W * self.style.overlapAsPercentageOfTabWidth;
+    
     
   NSUInteger tabIndex = 0;
   
