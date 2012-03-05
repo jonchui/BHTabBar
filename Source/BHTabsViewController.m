@@ -120,9 +120,9 @@ enum { kTagTabBase = 100 };
 
   CGFloat tabWidth = frame.size.width / [self.viewControllers count];
     // check that it's smaller than our MIN_Y
-    if (tabWidth < 320/3.0) {
-        tabWidth = 320/3.0;
-        self.tabsContainerView.contentSize = CGSizeMake(320/3.0*[self.viewControllers count], self.style.tabsViewHeight);
+    if (tabWidth < MIN_TAB_WIDTH) {
+        tabWidth = MIN_TAB_WIDTH;
+        self.tabsContainerView.contentSize = CGSizeMake(MIN_TAB_WIDTH*[self.viewControllers count], self.style.tabsViewHeight);
     }
     
   NSUInteger overlap = tabWidth * self.style.overlapAsPercentageOfTabWidth;
