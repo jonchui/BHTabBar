@@ -119,6 +119,12 @@ enum { kTagTabBase = 100 };
   // We position the tab views from left to right, with some overlapping after the first one.
 
   CGFloat tabWidth = frame.size.width / [self.viewControllers count];
+    // check that it's smaller than our MIN_Y
+    if (tabWidth < 320/3.0) {
+        tabWidth = 320/3.0;
+        self.tabsContainerView.contentSize = CGSizeMake(320/3.0*[self.viewControllers count], self.style.tabsViewHeight);
+    }
+    
   NSUInteger overlap = tabWidth * self.style.overlapAsPercentageOfTabWidth;
   tabWidth = (frame.size.width + overlap * ([self.viewControllers count] - 1)) / [self.viewControllers count];
 
@@ -149,7 +155,7 @@ enum { kTagTabBase = 100 };
   self.tabsContainerView.tabViews = allTabViews;
 
   CGRect footerFrame = CGRectMake(0, tabsViewFrame.size.height - self.style.tabBarHeight - self.style.shadowRadius,
-                                  tabsViewFrame.size.width,
+                                  self.tabsContainerView.contentSize.width,
                                   self.style.tabBarHeight + self.style.shadowRadius);
 
   self.footerView = [[[BHTabsFooterView alloc] initWithFrame:footerFrame] autorelease];
