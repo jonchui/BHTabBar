@@ -18,6 +18,8 @@
   // check if W, is < then MIN_W (this lets you decide how many tabs per page). if it IS, then we need to expand contentView of self.view
     if (W < MIN_W) {
         W = MIN_W;
+        // we need to incraese the content view
+        self.contentSize = CGSizeMake(W*N, self.frame.size.height);
     }
     
   NSUInteger tabIndex = 0;
