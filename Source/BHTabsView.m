@@ -13,7 +13,7 @@
   CGFloat W = self.frame.size.width / N;
   NSUInteger overlap = W * self.style.overlapAsPercentageOfTabWidth;
   W = (self.frame.size.width + overlap * (N-1)) / N;
-  // check if W, is < then MIN_TAB_WIDTH (this lets you decide how many tabs per page). if it IS, then we need to expand contentView of self.view
+  // do not know why we have to "redo" this logic - kinda sucks.  check if W, is < then MIN_TAB_WIDTH (this lets you decide how many tabs per page). if it IS, then we need to expand contentView of self.view
     if (W < MIN_TAB_WIDTH) {
         W = MIN_TAB_WIDTH;
         // we need to incraese the content view

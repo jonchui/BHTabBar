@@ -110,6 +110,9 @@ enum { kTagTabBase = 100 };
 
   CGRect tabsViewFrame = CGRectMake(0, 0, frame.size.width, self.style.tabsViewHeight);
   self.tabsContainerView = [[[BHTabsView alloc] initWithFrame:tabsViewFrame] autorelease];
+    // get rid of scroll bars
+    [self.tabsContainerView setShowsHorizontalScrollIndicator:NO];
+    
   self.tabsContainerView.backgroundColor = [UIColor clearColor];
   self.tabsContainerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
   self.tabsContainerView.style = self.style;
