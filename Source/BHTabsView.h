@@ -2,7 +2,7 @@
 
 @class BHTabStyle;
 
-@interface BHTabsView : UIView {
+@interface BHTabsView : UIScrollView {
   NSArray *tabViews;
   BHTabStyle *style;
 }

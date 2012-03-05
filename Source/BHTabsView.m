@@ -1,10 +1,13 @@
 #import "BHTabsView.h"
 #import "BHTabStyle.h"
 
+#define MIN_W 320/3
+
 @implementation BHTabsView
 
 @synthesize tabViews;
 @synthesize style;
+
 
 - (void)layoutSubviews {
   NSUInteger N = [self.tabViews count];
@@ -12,7 +15,11 @@
   CGFloat W = self.frame.size.width / N;
   NSUInteger overlap = W * self.style.overlapAsPercentageOfTabWidth;
   W = (self.frame.size.width + overlap * (N-1)) / N;
-  
+  // check if W, is < then MIN_W (this lets you decide how many tabs per page). if it IS, then we need to expand contentView of self.view
+    if (W < MIN_W) {
+        W = MIN_W;
+    }
+    
   NSUInteger tabIndex = 0;
   
   for (UIView *tabView in self.tabViews) {

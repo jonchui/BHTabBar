@@ -10,7 +10,7 @@
 @synthesize vc3 = _vc3;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  NSArray *vcs = [NSArray arrayWithObjects:self.vc1, self.vc2, nil];
+  NSArray *vcs = [NSArray arrayWithObjects:self.vc1, self.vc2,self.vc1,self.vc1, self.vc2,self.vc1, nil];
   
   viewController = [[BHTabsViewController alloc] 
                     initWithViewControllers:vcs
